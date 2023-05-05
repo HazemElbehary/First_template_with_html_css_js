@@ -1,0 +1,891 @@
+:root {
+    --main-color: #009688;
+    --second-color: #E91E63;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+}
+
+.container {
+    width: 90%;
+    margin: 0px auto;
+}
+
+* {
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0px;
+}
+
+
+/* Start options  */
+
+.options {
+    height: 100vh;
+    width: 220px;
+    background-color: white;
+    z-index: 1000;
+    position: fixed;
+    left: -220px;
+    transition: 0.3s;
+}
+
+.options .box {
+    width: 100%;
+}
+
+.options.open {
+    left: 0;
+}
+
+.options .set {
+    background-color: white;
+    position: absolute;
+    top: 108px;
+    right: -53px;
+    cursor: pointer;
+}
+
+.options .set i {
+    font-size: 20px;
+    padding: 8px 20px;
+}
+
+.box>div {
+    text-align: center;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #eee;
+    box-sizing: border-box;
+}
+
+.choose_color h4 {
+    margin: 10px 0;
+}
+
+.choose_color .list_colors {
+    padding: 0px;
+    margin: 0;
+}
+
+.choose_color .list_colors li.active {
+    border-color: white;
+}
+
+.choose_color .list_colors li {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #eee;
+}
+
+.choose_color .list_colors li:first-child {
+    background-color: #FF9800;
+}
+
+.choose_color .list_colors li:nth-child(2) {
+    background-color: #E91E63;
+}
+
+.choose_color .list_colors li:nth-child(3) {
+    background-color: #009688;
+}
+
+.choose_color .list_colors li:nth-child(4) {
+    background-color: #03A9F4;
+}
+
+.choose_color .list_colors li:nth-child(5) {
+    background-color: #4CAF50;
+}
+
+
+/*Start Second Option  */
+
+.box .random_bg ul,
+.box .bullet ul {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    padding-top: 30px;
+}
+
+.box .random_bg ul li.active,
+.box .bullet ul li.active {
+    opacity: 1;
+}
+
+.box .random_bg ul li,
+.box .bullet ul li {
+    padding: 5px 10px;
+    background-color: var(--main-color);
+    border-radius: 3px;
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+
+/*End Second Option  */
+
+
+/*Start reset option  */
+
+.options .reset {
+    margin: 0px 11px;
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/*End reset option  */
+
+
+/* End options  */
+
+
+/* Start Landing Page */
+
+.landing-page {
+    min-height: 100vh;
+    background-image: url(../img/back24.jpg);
+    background-size: 100% 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.header-area {
+    position: relative;
+    z-index: 2;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+.cont-header {
+    background-color: #333;
+}
+
+.header-area .logo {
+    width: 300px;
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+}
+
+.header-area ul {
+    width: 100%;
+    text-align: end;
+    padding-left: 0px;
+    padding-right: 20px;
+}
+
+.header-area ul li {
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.header-area ul a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-area ul a.active,
+.header-area ul a:hover {
+    color: var(--main-color);
+}
+
+.toggle-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.toggle-menu span {
+    width: 50px;
+    background-color: white;
+    height: 7px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 991px) {
+    .header-area ul {
+        position: absolute;
+        background-color: #FFF;
+        padding: 10px;
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 83px;
+        width: 53%;
+        border-radius: 4px;
+        text-align: left;
+    }
+    .header-area ul.open {
+        display: block;
+    }
+    .header-area ul::before {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 7px;
+        top: -33px;
+        border-color: transparent transparent white transparent;
+        border-width: 17px;
+        border-style: solid;
+    }
+    .header-area ul li {
+        color: red;
+        margin-bottom: 20px;
+        display: block;
+    }
+    .header-area {
+        justify-content: space-between;
+        z-index: 3;
+    }
+    .toggle-menu {
+        display: block;
+    }
+}
+
+.cont {
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.intro-txt {
+    margin-top: 35px;
+    left: 50%;
+    top: 50%;
+    color: white;
+    text-align: center;
+    width: 50%;
+}
+
+.intro-txt h1 {
+    font-size: 34px;
+}
+
+@media (max-width: 575px) {
+    .intro-txt h1 {
+        font-size: 26px;
+    }
+}
+
+.intro-txt p {
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height: 30px;
+}
+
+.intro-txt span {
+    color: var(--main-color);
+}
+
+.my_photo {
+    margin-right: 60px;
+}
+
+.my_photo img {
+    width: 435px;
+    height: 592px;
+}
+
+@media (max-width: 767px) {
+    .my_photo img {
+        display: none;
+    }
+    .intro-txt {
+        width: 100%;
+        margin-top: 0px;
+    }
+}
+
+
+/* Start bullets */
+
+.bullets {
+    position: fixed;
+    right: 10px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bullets a {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 36px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 3px solid var(--main-color);
+    position: relative;
+    cursor: pointer;
+}
+
+.bullets a::after {
+    content: "";
+    width: 99px;
+    background-color: var(--main-color);
+    position: absolute;
+    left: -163px;
+    padding: 10px;
+    top: -83%;
+    display: none;
+    color: white;
+    text-align: center;
+}
+
+.bullets a::before {
+    left: -44px;
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-style: solid;
+    border-width: 8px;
+    border-color: transparent transparent transparent var(--main-color);
+    display: none;
+}
+
+.bullets a:hover::after,
+.bullets a:hover::before {
+    display: block;
+}
+
+.bullets a:first-child::after {
+    content: "About Us";
+}
+
+.bullets a:nth-child(2)::after {
+    content: "Our Skills";
+}
+
+.bullets a:nth-child(3)::after {
+    content: "Our Gallery";
+}
+
+.bullets a:nth-child(4)::after {
+    content: "Timeline";
+}
+
+.bullets a:nth-child(5)::after {
+    content: "Features";
+}
+
+.bullets a:nth-child(6)::after {
+    content: "Testimonials";
+}
+
+
+/* End bullets */
+
+
+/* End Landing Page */
+
+
+/* Start About Us  */
+
+.about-us {
+    display: flex;
+}
+
+.about-us .txt {
+    padding: 30px;
+}
+
+.about-us .txt h1 {
+    color: var(--main-color);
+    margin-top: 0px;
+}
+
+.about-us .txt p {
+    line-height: 1.8;
+    color: #767676;
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .about-us {
+        display: block;
+        text-align: center;
+    }
+}
+
+
+/* End About Us  */
+
+
+/* Start Our Skills */
+
+.our-skills {
+    background-color: #EEE;
+    padding: 50px;
+}
+
+.our-skills h2,
+.Our-gallery h2,
+.contuct h2,
+.feature h2 {
+    color: var(--main-color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.our-skills .container div {
+    background-color: white;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.our-skills .container div p {
+    font-weight: bold;
+    width: 100px;
+}
+
+.our-skills .container div>span {
+    background-color: #EEE;
+    border-radius: 5px;
+    width: 90%;
+    height: 30px;
+    position: relative;
+}
+
+.our-skills .container div span .perc {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: var(--main-color);
+    border-radius: 5px 0px 0px 5px;
+    transition: 0.5s;
+}
+
+@media (max-width:767px) {
+    .our-skills .container div {
+        display: block;
+    }
+    .our-skills .container div p {
+        text-align: center;
+        margin-bottom: 18px;
+        width: 90%;
+    }
+    .our-skills .container div span {
+        display: block;
+    }
+}
+
+
+/* End Our Skills */
+
+
+/* Start Gallery */
+
+.Our-gallery {
+    position: relative;
+    padding: 50px;
+}
+
+.dark {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.dark.open {
+    display: block;
+}
+
+.Our-gallery .photos {
+    display: flex;
+    column-gap: 10px;
+    row-gap: 10px;
+    background-color: white;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Our-gallery .box {
+    padding: 4px;
+    background-color: #eee;
+    text-align: center;
+    border: 1px #CCC solid;
+    width: 200px;
+    cursor: pointer;
+}
+
+.Our-gallery .photos img {
+    width: 100%;
+    height: 100%;
+}
+
+.popup {
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 101;
+    padding: 20px;
+    display: none;
+}
+
+.popup.open {
+    display: block;
+}
+
+.popup h3 {
+    color: var(--main-color);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.popup span {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: var(--main-color);
+    position: absolute;
+    top: -13px;
+    border-radius: 50%;
+    right: -10px;
+    color: white;
+    text-align: center;
+    line-height: 1.7;
+    cursor: pointer;
+}
+
+.popup .image {
+    margin: auto;
+}
+
+.popup .image img {
+    width: 100%;
+}
+
+
+/* End Gallery */
+
+
+/* Start TimeLine */
+
+.timeline {
+    background: #eee;
+    padding: 50px;
+    position: relative;
+}
+
+.timeline .container {
+    position: relative;
+}
+
+.timeline .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    background-color: var(--main-color);
+    width: 2px;
+    height: 100%;
+}
+
+.timeline h2 {
+    color: var(--main-color);
+    margin-bottom: 10px;
+}
+
+.timeline p {
+    line-height: 1.7;
+    color: #666;
+}
+
+.timeline .date {
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 3px;
+    padding: 5px;
+    width: fit-content;
+    margin: auto;
+}
+
+.timeline .right {
+    margin-left: auto;
+}
+
+.timeline .left,
+.timeline .right {
+    background-color: white;
+    padding: 10px;
+    width: calc(50% - 30px);
+    margin-bottom: 27px;
+    margin-top: 27px;
+    position: relative;
+}
+
+.timeline .left::before {
+    right: -29px;
+    border-color: transparent transparent transparent white;
+}
+
+.timeline .right::before,
+.timeline .left::before {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 15px;
+}
+
+.timeline .right::before {
+    left: -29px;
+    border-color: transparent white transparent transparent;
+}
+
+.timeline .left::after,
+.timeline .right::after {
+    content: "";
+    background-color: white;
+    border: 3px var(--main-color) solid;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    top: 15px;
+    position: absolute;
+}
+
+.timeline .left::after {
+    right: -39px;
+}
+
+.timeline .right::after {
+    left: -39px;
+}
+
+@media (max-width:767px) {
+    .timeline .left::after,
+    .timeline .right::after,
+    .timeline .right::before,
+    .timeline .left::before {
+        display: none;
+    }
+    .timeline .left,
+    .timeline .right {
+        width: 100%;
+    }
+}
+
+
+/* End TimeLine */
+
+
+/* Start Feature  */
+
+.feature {
+    padding: 50px;
+}
+
+.feature .boxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.feature .boxes .box {
+    width: calc(100% / 3);
+    text-align: center;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.feature .boxes .box span {
+    display: block;
+    width: 40px;
+    background-color: var(--main-color);
+    height: 5px;
+    margin: 15px auto;
+}
+
+.feature .boxes .box p {
+    padding: 0px 20px;
+}
+
+.feature img {
+    width: 100px;
+}
+
+@media (max-width:991px) {
+    .feature .boxes .box {
+        width: calc(100% / 2);
+    }
+}
+
+@media (max-width:575px) {
+    .feature .boxes .box {
+        width: calc(100%);
+    }
+}
+
+
+/* End Feature  */
+
+
+/* Start testimonials */
+
+.testimonials {
+    padding: 50px;
+    background: linear-gradient(to right, var(--main-color) 50%, #333 50%);
+}
+
+.testimonials h2 {
+    color: white;
+    font-size: 30px;
+}
+
+.employee {
+    display: flex;
+    column-gap: 10px;
+    margin-top: 35px;
+}
+
+.employee div {
+    background-color: white;
+    padding: 20px;
+    line-height: 1.7;
+}
+
+.employee div p:not(:first-of-type),
+.employee div h4 {
+    text-align: center;
+}
+
+.employee div h4 {
+    margin-top: 20px;
+}
+
+.employee div p {
+    color: #707070;
+}
+
+@media (max-width:767px) {
+    .employee {
+        display: block;
+    }
+    .employee div {
+        margin-bottom: 30px;
+    }
+}
+
+
+/* End testimonials */
+
+
+/* Start Contuct us  */
+
+.contuct {
+    padding: 50px;
+    background-image: url("/img/contact.png");
+}
+
+.contuct .container {
+    height: 284px;
+}
+
+.contuct .left {
+    float: left;
+}
+
+.contuct .right {
+    float: right;
+}
+
+.contuct .left,
+.contuct .right {
+    width: 50%;
+    height: 223px;
+}
+
+.contuct form>div {
+    width: 49%;
+}
+
+.contuct input,
+.contuct textarea {
+    outline: none;
+    background: transparent;
+    border: 1px solid #bdb1b1;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 99%;
+}
+
+.contuct .right input:last-child {
+    background-color: var(--main-color);
+}
+
+.contuct textarea {
+    height: 157px;
+}
+
+.contuct .right input:last-child {
+    color: white;
+    cursor: pointer;
+}
+
+.contuct input:focus::placeholder,
+.contuct textarea:focus::placeholder {
+    color: transparent;
+    transition: 0.3s;
+}
+
+
+/* End Contuct us  */
+
+.footer {
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
