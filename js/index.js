@@ -65,7 +65,7 @@ function randomizeImgs(option) {
         let array_of_imgs = [21, 22, 23, 24, 25, 26]
         background_interval = setInterval(() => {
             let rand_num = Math.floor(Math.random() * array_of_imgs.length);
-            document.querySelector(`.landing-page`).style.backgroundImage = `url("/img/back${array_of_imgs[rand_num]}.jpg")`;
+            document.querySelector(`.landing-page`).style.backgroundImage = `url("img/back${array_of_imgs[rand_num]}.jpg")`;
         }, 8000);
     } else {
         remove_active(options, options[1]);
