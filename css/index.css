@@ -128,9 +128,13 @@ body {
     padding: 5px 10px;
     background-color: var(--main-color);
     border-radius: 3px;
-    color: white;
     opacity: 0.5;
     cursor: pointer;
+}
+
+.box .random_bg ul li a,
+.box .bullet ul li a {
+    color: var(--main-color);
 }
 
 
@@ -263,9 +267,11 @@ body {
         border-style: solid;
     }
     .header-area ul li {
-        color: red;
         margin-bottom: 20px;
         display: block;
+    }
+    .header-area ul li a {
+        color: black;
     }
     .header-area {
         justify-content: space-between;
@@ -826,7 +832,7 @@ body {
 
 .contuct {
     padding: 50px;
-    background-image: url("/img/contact.png");
+    background-image: url("img/contact.png");
 }
 
 .contuct .container {
